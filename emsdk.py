@@ -2706,10 +2706,15 @@ def main():
   if cmd in ('update', 'install', 'activate'):
     for i in range(2, len(sys.argv)):
       arg = sys.argv[i]
-      if arg in ('latest', 'sdk-latest', 'latest-64bit', 'sdk-latest-64bit', 'latest-fastcomp', 'latest-releases-fastcomp'):
+      if arg in ('latest', 'sdk-latest', 'latest-64bit', 'sdk-latest-64bit'):
+        # This is effectly the default SDK
+        sys.argv[i] = str(find_latest_releases_sdk('upstream'))
+      elif arg in ('latest-fastcomp', 'latest-releases-fastcomp'):
         sys.argv[i] = str(find_latest_releases_sdk('fastcomp'))
       elif arg in ('latest-upstream', 'latest-clang-upstream', 'latest-releases-upstream'):
         sys.argv[i] = str(find_latest_releases_sdk('upstream'))
+      elif arg == ('tot', 'sdk-tot'):
+        sys.argv[i] = str(find_tot_sdk('upstream'))
       elif arg == 'tot-upstream':
         sys.argv[i] = str(find_tot_sdk('upstream'))
       elif arg in ('tot-fastcomp', 'sdk-nightly-latest'):
