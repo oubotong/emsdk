@@ -2725,10 +2725,9 @@ def main():
         #   x.y.z[-(upstream|fastcomp_])
         #   sdk-x.y.z[-(upstream|fastcomp_])-64bit
         # TODO: support short notation for old builds too?
-        upstream = False
+        upstream = True
         if '-upstream' in arg:
           arg = arg.replace('-upstream', '')
-          upstream = True
         elif '-fastcomp' in arg:
           arg = arg.replace('-fastcomp', '')
           upstream = False
