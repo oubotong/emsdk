@@ -114,7 +114,7 @@ if WINDOWS:
 else:
   emsdk = './emsdk'
 
-test_lib_building(fastcomp_emcc, use_asmjs_optimizer=True)
+test_lib_building(upstream_emcc, use_asmjs_optimizer=True)
 
 print('update')
 run_emsdk('update-tags')
